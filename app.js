@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
@@ -5,23 +7,28 @@ const session = require('express-session');
 const ejsMate = require('ejs-mate');
 const path = require('path');
 const methodOverride = require('method-override');
+const helmet = require('helmet');
+const { styleSrcUrls } = require('./whiteList');
 
 //variables for set up
 const secret = '4684a58s4d78f54g1h2ddd58h'
 const port = 3000
-const dbUrl = 'mongodb://127.0.0.1:27017/template' 
-//set up local mongoose store
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/template'
+//set up mongoose store
+const connectionParams = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}
+mongoose.connect(dbUrl, connectionParams)
+  .then(() => {
+    console.log('database Connected')
+  })
+  .catch(err => {
+    console.log('Mongo connection error')
+    console.log(err)
+  })
 
-mongoose.connect(dbUrl)
-    .then(() => {
-        console.log('database Connected')
-    })
-    .catch(err => {
-        console.log('Mongo connection error')
-        console.log(err)
-    })
-
-  // to parse objects
+// to parse objects
 app.use(express.urlencoded({ extended: true }));
 
 //config up sessions
@@ -37,6 +44,29 @@ const sessionConfig = {
   }
 }
 
+//helmet
+
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: [],
+      connectSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'", styleSrcUrls],
+      workerSrc: ["'self'", "blob:"],
+      objectSrc: [],
+      imgSrc: [
+        "'self'",
+        "blob:",
+        "data:",
+      ],
+      fontSrc: ["'self'", "https://fonts.gstatic.com/"],
+      mediaSrc: ["https://res.cloudinary.com/dv5vm4sqh/"],
+      childSrc: ["blob:"]
+    }
+  })
+);
+
 app.use(session(sessionConfig));
 app.use(methodOverride('_method'))
 
@@ -48,8 +78,8 @@ app.set('views', path.join(__dirname, 'views'));
 //to use css and js
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', (req, res)=>{
-    res.render('home')
+app.get('/', (req, res) => {
+  res.render('home')
 })
 
 // set up express
