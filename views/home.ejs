@@ -1,3 +1,37 @@
 <% layout('./layouts/boilerplate') -%>
-<h1>It's a home page</h1>
-<h2>get ready to go</h2>
+
+    <h1 class="main__title">
+        Find What you need ...
+    </h1>
+
+
+    <section class="main">
+
+        <div class="map">
+            <div id="map"></div>
+            <div class="map__form">
+                <ion-icon name="medkit-outline"></ion-icon>
+                <p class="map__form-description">By entering your location, our application utilizes geolocation
+                    services to identify your current position. With this information, we employ advanced mapping
+                    technology to determine the nearest pack in your vicinity. Through real-time calculations and route
+                    optimization, we guide you seamlessly to the closest pack, ensuring convenience and efficiency in
+                    your journey. Whether you're in search of a recreational space or a vibrant community of like-minded
+                    individuals, our application strives to connect you with the most suitable pack nearby. Embrace the
+                    adventure and let us help you find your pack!</p>
+                <form action="/find" class="map__form-form">
+
+                    <label for="postcode" class="map__form-label">Postcode</label>
+                    <input type="text" name="postcode" id="postcode" class="map__form-input"
+                        placeholder="enter current location">
+
+                    <button class="btn">Find your nearest pack <span>&rarr;</span></button>
+                </form>
+
+            </div>
+        </div>
+        <!-- <img src="img/main-1.jpg" alt="" class="main__img"> -->
+
+    </section>
+
+
+    <script src="/js/map.js"></script>

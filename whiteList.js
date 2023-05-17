@@ -1,21 +1,26 @@
 const whiteList = [
     "https://cdn.jsdelivr.net/",
-    "https://res.cloudinary.com/djj2nhj8d/",
-    "https://stackpath.bootstrapcdn.com/",
     "https://cdn.jsdelivr.net/",
     "https://fonts.googleapis.com/",
-    "https://fonts.gstatic.com/"
+    "https://fonts.gstatic.com/",
+    "https://api.mapbox.com/",
+    "https://api.tiles.mapbox.com/",
+    "https://events.mapbox.com",
+    "https://unpkg.com/"
 ]
 
 module.exports.whiteList = whiteList
 
 
 const scriptSrcUrls = [
-
+    "https://cdn.jsdelivr.net/",
+    "https://api.mapbox.com/"
 ]
 
 const styleSrcUrls = [
-    "https://fonts.googleapis.com/"
+    "https://fonts.googleapis.com/",
+    "https://api.mapbox.com/"
 ]
 
 module.exports.styleSrcUrls = styleSrcUrls
+module.exports.styleSrcUrls = scriptSrcUrls

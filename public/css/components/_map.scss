@@ -1,0 +1,51 @@
+#map {
+    height: 50rem;
+    width: 45%;
+    border-radius: 10px;
+}
+
+.map {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 45%;
+
+
+        &-description {
+            font-size: $font-size-large;
+
+        }
+
+        &-form {
+            width: 100%;
+            text-align: center;
+        }
+
+        &-label {
+            display: block;
+            font-size: $font-size-larger;
+            text-transform: uppercase;
+            color: inherit;
+
+        }
+
+        &-input {
+            display: block;
+            margin: 1.5rem auto;
+            padding: 0.8rem;
+            border-radius: 25px;
+            width: 80%;
+            font-family: inherit;
+            text-align: center;
+            
+        }
+
+
+    }
+
+}

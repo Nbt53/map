@@ -1,0 +1,16 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    background-color: $color-primary-3;
+    margin: 2rem auto;
+    border-radius: 100px;
+    padding: 3.5rem;
+
+
+    &__img {
+        width: 50rem;
+        border-radius: 20px;
+    }
+}

@@ -8,10 +8,12 @@ const ejsMate = require('ejs-mate');
 const path = require('path');
 const methodOverride = require('method-override');
 const helmet = require('helmet');
-const { styleSrcUrls } = require('./whiteList');
+const { styleSrcUrls, scriptSrcUrls, whiteList } = require('./whiteList');
+const mapboxSdk = require('@mapbox/mapbox-sdk');
+
 
 //variables for set up
-const secret = '4684a58s4d78f54g1h2ddd58h'
+const secret = process.env.SECRET
 const port = 3000
 const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/template'
 //set up mongoose store
@@ -44,15 +46,21 @@ const sessionConfig = {
   }
 }
 
+// mapbox////
+
+const accessToken = process.env.MAPBOX_TOKEN; // Replace with your Mapbox access token
+const mapboxClient = mapboxSdk({ accessToken });
+
+
 //helmet
 
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: [],
-      connectSrc: ["'self'"],
-      scriptSrc: ["'self'"],
-      styleSrc: ["'self'", styleSrcUrls],
+      connectSrc: ["'self'", 'unsafe-inline', ...whiteList],
+      scriptSrc: ["'self'", 'unsafe-inline', ...whiteList],
+      styleSrc: ["'self'", 'unsafe-inline', ...whiteList],
       workerSrc: ["'self'", "blob:"],
       objectSrc: [],
       imgSrc: [
@@ -76,7 +84,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 //to use css and js
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public', ));
+app.use('/js', express.static('public', { 'extensions': ['js'], 'Content-Type': 'application/javascript' }));
 
 app.get('/', (req, res) => {
   res.render('home')

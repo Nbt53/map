@@ -1,0 +1,12 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    color: $color-gray-dark-1;
+}
+
+.main {
+
+    &__title {      
+        font-size: $font-size-largest;
+        letter-spacing: 1px;
+    }
+}

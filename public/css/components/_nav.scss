@@ -1,0 +1,24 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    background-color: rgba($color-gray-dark-1, $alpha: 0.2);
+
+    &__section{
+        margin: 0 1rem;
+    }
+
+    &__link:link,
+    &__link:visited{
+        color: $color-gray-light-3;
+        font-size: $font-size-large;
+        font-weight: 600;
+        text-decoration: none;
+        
+
+        margin: 1rem;
+    }
+  
+}
