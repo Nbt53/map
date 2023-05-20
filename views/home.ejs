@@ -1,16 +1,12 @@
 <% layout('./layouts/boilerplate') -%>
 
-    <h1 class="main__title">
-        Find What you need ...
-    </h1>
-
-
     <section class="main">
+      
 
         <div class="map">
             <div id="map"></div>
             <div class="map__form">
-                <ion-icon name="medkit-outline"></ion-icon>
+                <ion-icon name="medkit-outline" class="icon"></ion-icon>
                 <p class="map__form-description">By entering your location, our application utilizes geolocation
                     services to identify your current position. With this information, we employ advanced mapping
                     technology to determine the nearest pack in your vicinity. Through real-time calculations and route
@@ -22,7 +18,7 @@
 
                     <label for="postcode" class="map__form-label">Postcode</label>
                     <input type="text" name="postcode" id="postcode" class="map__form-input"
-                        placeholder="enter current location">
+                        placeholder="Enter Postcode" value="<%= postcode %>">
 
                     <button class="btn">Find your nearest pack <span>&rarr;</span></button>
                 </form>
@@ -31,6 +27,18 @@
         </div>
         <!-- <img src="img/main-1.jpg" alt="" class="main__img"> -->
 
+    </section>
+
+    <section class="about" id="about">
+        <p class="about_paragraph">
+            Our charity is dedicated to providing assistance to individuals in need by helping them locate the nearest
+            Stab Pack. Through our innovative technology and collaboration with local communities, we strive to offer a
+            lifeline to those facing emergency situations. By simply entering your location into our platform, we can
+            swiftly identify the closest Stab Pack and connect you with the necessary resources and support. Our mission
+            is to ensure that no one feels alone or helpless during challenging times. With our charity's commitment to
+            compassionate care and efficient response, we stand ready to guide you to the nearest Stab Pack, empowering
+            you with the help and hope you deserve. Together, let's create a safer and more resilient community.
+        </p>
     </section>
 
 

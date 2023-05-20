@@ -1,0 +1,55 @@
+// ///get locationconst os = require('os');
+// const axios = require('axios');
+
+// const getLocation = () => {
+
+//     const networkInterfaces = os.networkInterfaces();
+//     const addresses = [];
+
+//     for (const interfaceName in networkInterfaces) {
+//         const interfaces = networkInterfaces[interfaceName];
+//         for (const interface of interfaces) {
+//             if (interface.family === 'IPv4' && !interface.internal) {
+//                 addresses.push(interface.address);
+//             }
+//         }
+//     }
+
+//     ////
+
+
+
+//     const ipAddress = addresses[0]; // Replace with the actual IP address
+
+//     const apiKey = process.env.IP_API; // Replace with your API key
+//     const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${apiKey}&ip=${ipAddress}`;
+
+//     // axios.get(url)
+
+//     //     .then((response) => {
+//     //       let  postcode = response.data.zipcode
+//     //         return postcode
+//     //     })
+//     //     .catch((error) => {
+//     //         console.error('Error getting geolocation:', error.message);
+//     //     });
+
+//    const code = fetchPostcode(url).then((postcode) => {
+//         return postcode
+//       });
+
+//       return code
+// }
+
+// module.exports.getLocation = getLocation
+
+
+// async function fetchPostcode(url) {
+//     try {
+//       const response = await axios.get(url);
+//       const postcode = response.data.zipcode;
+//       return postcode;
+//     } catch (error) {
+//       console.error('Error getting geolocation:', error.message);
+//     }
+//   }

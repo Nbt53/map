@@ -6,8 +6,9 @@ const whiteList = [
     "https://api.mapbox.com/",
     "https://api.tiles.mapbox.com/",
     "https://events.mapbox.com",
-    "https://unpkg.com/"
-]
+    "https://unpkg.com/",
+    "https://api.ipgeolocation.com"
+    ]
 
 module.exports.whiteList = whiteList
 

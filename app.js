@@ -4,12 +4,15 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const session = require('express-session');
+const mongoSanitize = require('express-mongo-sanitize');
 const ejsMate = require('ejs-mate');
 const path = require('path');
 const methodOverride = require('method-override');
 const helmet = require('helmet');
 const { styleSrcUrls, scriptSrcUrls, whiteList } = require('./whiteList');
 const mapboxSdk = require('@mapbox/mapbox-sdk');
+const { getLocation } = require('./public/js/getLocation');
+
 
 
 //variables for set up
@@ -46,11 +49,11 @@ const sessionConfig = {
   }
 }
 
+
 // mapbox////
 
 const accessToken = process.env.MAPBOX_TOKEN; // Replace with your Mapbox access token
 const mapboxClient = mapboxSdk({ accessToken });
-
 
 //helmet
 
@@ -58,9 +61,9 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: [],
-      connectSrc: ["'self'", 'unsafe-inline', ...whiteList],
-      scriptSrc: ["'self'", 'unsafe-inline', ...whiteList],
-      styleSrc: ["'self'", 'unsafe-inline', ...whiteList],
+      connectSrc: ["'self'", 'unsafe-inline', 'moz-extension:', ...whiteList],
+      scriptSrc: ["'self'", 'unsafe-inline', 'moz-extension:', ...whiteList],
+      styleSrc: ["'self'", 'unsafe-inline', 'moz-extension:', ...whiteList],
       workerSrc: ["'self'", "blob:"],
       objectSrc: [],
       imgSrc: [
@@ -76,7 +79,16 @@ app.use(
 );
 
 app.use(session(sessionConfig));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
+app.use(mongoSanitize());
+
+
+///session////
+
+app.use(async (req, res, next) => {
+  res.locals.postcode = await getLocation()
+  next();
+})
 
 //set view engine
 app.engine('ejs', ejsMate);
@@ -84,11 +96,12 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 //to use css and js
-app.use(express.static(__dirname + '/public', ));
+app.use(express.static(__dirname + '/public',));
 app.use('/js', express.static('public', { 'extensions': ['js'], 'Content-Type': 'application/javascript' }));
 
-app.get('/', (req, res) => {
-  res.render('home')
+app.get('/', async (req, res) => {
+  const postcode = res.locals.postcode
+  res.render('home', { postcode })
 })
 
 // set up express

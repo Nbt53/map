@@ -24,13 +24,17 @@ body {
   letter-spacing: 1px;
 }
 
+ion-icon {
+  font-size: 5rem;
+  color: inherit;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 5rem;
-  background-color: rgba(33, 37, 41, 0.2);
 }
 .nav__section {
   margin: 0 1rem;
@@ -59,6 +63,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   width: 45%;
+  align-items: center;
 }
 .map__form-description {
   font-size: 1.4rem;
@@ -88,19 +93,31 @@ body {
   background-color: transparent;
   cursor: pointer;
   margin: 1rem;
+  transition: all 1s;
+  text-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.692);
+}
+.btn:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.692);
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 95%;
   align-items: center;
   background-color: #9775fa;
   margin: 2rem auto;
-  border-radius: 100px;
+  border-radius: 50px;
   padding: 3.5rem;
+  margin-top: 0;
 }
 .main__img {
   width: 50rem;
   border-radius: 20px;
+}
+
+.about {
+  font-size: 1.4rem;
+  margin: 5rem;
 }/*# sourceMappingURL=main.css.map */

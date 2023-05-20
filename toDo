@@ -3,3 +3,4 @@ set up mongo atlas
 set up map
 create models
 design page
+make get location work when out of environment
