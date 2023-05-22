@@ -1,5 +1,6 @@
 const getLocation = async () => {
     if (typeof navigator !== 'undefined') {
+
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
@@ -18,6 +19,7 @@ const getLocation = async () => {
         } else {
             console.log('Geolocation is not supported by your browser');
         }
+
     } else {
         return 'm147db'
     }
