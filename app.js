@@ -103,10 +103,7 @@ app.use('/js', express.static('public', { 'extensions': ['js'], 'Content-Type': 
 const routes = require('./routes/routes')
 app.use('/', routes)
 
-// app.get('/', async (req, res) => {
-//   const postcode = res.locals.postcode
-//   res.render('home', { postcode })
-// })
+
 
 // set up express
 app.listen(port, () => { console.log(` Serving on ${port}. Press ctl + c to exit`) })

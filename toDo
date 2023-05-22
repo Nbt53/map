@@ -1,6 +1,9 @@
-set up security
+check up security
 set up mongo atlas
 set up map
 create models
 design page
 make get location work when out of environment
+remove mapbox clutter
+add middleware(catch async and express error)
+add animation to nav
