@@ -7,3 +7,6 @@ make get location work when out of environment
 remove mapbox clutter
 add middleware(catch async and express error)
 add animation to nav
+
+
+in web make admin so add location is like a sidebar

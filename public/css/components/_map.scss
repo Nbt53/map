@@ -2,6 +2,11 @@
     height: 50rem;
     width: 45%;
     border-radius: 10px;
+
+    @include respond(tab-port) {
+        width: unset;
+        margin-bottom: 1.5rem;
+    }
 }
 
 .map {
@@ -15,6 +20,10 @@
         justify-content: space-around;
         width: 45%;
         align-items: center;
+
+        @include respond(tab-port) {
+            width: unset;
+        }
 
 
         &-description {
@@ -47,6 +56,15 @@
         }
 
 
+
     }
 
+    @include respond(tab-port) {
+        flex-direction: column;
+        justify-content: center;
+
+        &__form-description {
+            margin-top: 1.5rem;
+        }
+    }
 }

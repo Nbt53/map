@@ -11,6 +11,16 @@ body {
     }
 }
 
+.title{
+
+    &-tertiary{
+        margin-bottom: 1.5rem;
+        font-size: $font-size-largest;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+
 
 ion-icon {
     font-size: 5rem;

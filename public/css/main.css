@@ -8,6 +8,11 @@
 html {
   font-size: 62.5%;
 }
+@media (max-width: 56.25em) {
+  html {
+    font-size: 54.45%;
+  }
+}
 
 body {
   background-color: #e9ecef;
@@ -22,6 +27,13 @@ body {
 .main__title {
   font-size: 1.8rem;
   letter-spacing: 1px;
+}
+
+.title-tertiary {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 ion-icon {
@@ -52,6 +64,12 @@ ion-icon {
   width: 45%;
   border-radius: 10px;
 }
+@media (max-width: 56.25em) {
+  #map {
+    width: unset;
+    margin-bottom: 1.5rem;
+  }
+}
 
 .map {
   display: flex;
@@ -64,6 +82,11 @@ ion-icon {
   justify-content: space-around;
   width: 45%;
   align-items: center;
+}
+@media (max-width: 56.25em) {
+  .map__form {
+    width: unset;
+  }
 }
 .map__form-description {
   font-size: 1.4rem;
@@ -86,6 +109,15 @@ ion-icon {
   width: 80%;
   font-family: inherit;
   text-align: center;
+}
+@media (max-width: 56.25em) {
+  .map {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .map__form-description {
+    margin-top: 1.5rem;
+  }
 }
 
 .btn {
@@ -114,6 +146,7 @@ ion-icon {
   flex-direction: column;
   text-align: center;
   justify-content: space-around;
+  background-color: #9775fa;
 }
 .form-section {
   margin: 1.4rem;
@@ -130,6 +163,11 @@ ion-icon {
   font-weight: 500;
   text-align: center;
 }
+@media (max-width: 56.25em) {
+  .form__input {
+    width: 80%;
+  }
+}
 
 .admin-contact__form {
   border: 1px solid black;
@@ -144,6 +182,11 @@ ion-icon {
   margin: 0 auto;
   padding: 1.5rem;
   width: 60%;
+}
+@media (max-width: 56.25em) {
+  .location__form {
+    width: unset;
+  }
 }
 
 .main {
@@ -171,12 +214,27 @@ ion-icon {
   display: flex;
   justify-content: center;
   width: 90%;
-  height: 85vh;
   margin: 0 auto;
+  text-align: center;
+}
+@media (max-width: 56.25em) {
+  .admin {
+    flex-direction: column-reverse;
+  }
 }
 .admin-contact {
   width: 50%;
 }
+@media (max-width: 56.25em) {
+  .admin-contact {
+    width: unset;
+  }
+}
 .admin-add-location {
   width: 50%;
+}
+@media (max-width: 56.25em) {
+  .admin-add-location {
+    width: unset;
+  }
 }/*# sourceMappingURL=main.css.map */
