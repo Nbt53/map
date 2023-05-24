@@ -67,7 +67,6 @@ ion-icon {
 @media (max-width: 56.25em) {
   #map {
     width: unset;
-    margin-bottom: 1.5rem;
   }
 }
 
@@ -75,6 +74,12 @@ ion-icon {
   display: flex;
   justify-content: space-between;
   width: 80%;
+}
+@media (max-width: 56.25em) {
+  .map__map {
+    margin: 5rem 0 10rem 0;
+    width: 100%;
+  }
 }
 .map__form {
   display: flex;
@@ -200,9 +205,10 @@ ion-icon {
   padding: 3.5rem;
   margin-top: 0;
 }
-.main__img {
-  width: 50rem;
-  border-radius: 20px;
+@media (max-width: 56.25em) {
+  .main {
+    padding: 1rem 0;
+  }
 }
 
 .about {

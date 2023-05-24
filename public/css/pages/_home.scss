@@ -9,15 +9,13 @@
     padding: 3.5rem;
     margin-top: 0;
 
-
-    &__img {
-        width: 50rem;
-        border-radius: 20px;
+    @include respond(tab-port) {
+        padding: 1rem 0
     }
 }
 
 
-.about{
+.about {
     font-size: $font-size-large;
     margin: 5rem;
 }

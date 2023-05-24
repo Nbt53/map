@@ -5,7 +5,6 @@
 
     @include respond(tab-port) {
         width: unset;
-        margin-bottom: 1.5rem;
     }
 }
 
@@ -13,6 +12,13 @@
     display: flex;
     justify-content: space-between;
     width: 80%;
+
+    &__map{
+        @include respond(tab-port) {
+            margin: 5rem 0  10rem 0;
+            width: 100%;
+        }
+    }
 
     &__form {
         display: flex;
